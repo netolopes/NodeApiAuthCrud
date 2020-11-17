@@ -1,0 +1,89 @@
+
+LOGICA DA API
+Cria o usuario em USER/STORE
+Loga cm o usuario criado em TOKEN/STORE
+Apos logado, ja pode criar ALUNO em ALUNO/STORE
+
+
+npm init -y
+npx eslint --init
+instalar plugin eslint no vscode
+npm i nodemon sucrase -D
+npm i express
+npm i dotenv
+npm i  sequelize mysql
+npx sequelize
+npm i -D sequelize-cli
+//migrations cm sequelize
+npx sequelize migration:create --name=alunos
+npx sequelize migration:create --name=users
+npx sequelize migration:create --name=mudar-email-aluno-unique
+npx sequelize migration:create --name=criar-tabela-de-foto-do-aluno
+// executar migrations
+npx sequelize db:migrate
+//desfazer a migrate
+npx sequelize db:migrate:undo
+
+npm i bcryptjs
+npm i jsonwebtoken
+
+//upload
+npm i multer
+
+* NO INSOMNIA:Para alterar o TOKEN  
+1 - va em 'No Environment/manage Envinroment/token'  
+2 - va em AUTH/BEARER TOKEN ,  e adicione o campo "token", para autenticar(ficar logado) a rota
+3 - se a rota for fotos mudar de JSON para MULTIPART
+
+* CAMPO VIRTUAL: so aparece no codigo, ou seja no array json ,mas nao esta  na tabela do banco
+
+* FAZER O BUILD DO PROJETO PARA A PRODUCAO(usar o sucrase ou babel par converter ,transpilar o codigo em js)
+npm run build
+
+//seed (gerar dados na tabela na inicializacao do sistema)
+npx sequelize seed:generate --name criar-usuarios
+// executar seed
+npx sequelize db:seed:all
+
+
+//lembrar de setar o tamanho da imagem no upload, no codigoou no arquivo 
+nginx  no servidor
+
+//lembrar de restartar "pm2 restart nomeDaApp", para atualozar os arquivos em producao
+
+settings vscode
+substitui 
+
+"editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll": true
+},
+
+obs: PRIORIDADES
+EM CIMA:
+import { algumaCoisa } from 'algo'
+ABAIXO:
+import { algumaCoisa } from '../../algo'
+
+*ALUNO X FOTO 
+A FOTO "PERTENCE" AO ALUNO (belongs_to) tem uma "FK"
+eh a mesma coisa q :
+ALUNO "TEM" FOTOS (hasOne ou hasMany)
+hasOne
+{
+    "nome":"jose"
+    {
+    "foto":"arquivo1.jpg"
+    }
+}
+
+hasMany
+{
+    "nome":"jose"
+    {
+    "foto":"arquivo1.jpg"
+    }
+    {
+    "foto":"arquivo2.jpg"
+    }
+}
