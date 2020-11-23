@@ -87,3 +87,5 @@ hasMany
     "foto":"arquivo2.jpg"
     }
 }
+
+ npm i cors helmet
