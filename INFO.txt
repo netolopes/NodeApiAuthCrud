@@ -38,7 +38,7 @@ npm i multer
 * CAMPO VIRTUAL: so aparece no codigo, ou seja no array json ,mas nao esta  na tabela do banco
 
 * FAZER O BUILD DO PROJETO PARA A PRODUCAO(usar o sucrase ou babel par converter ,transpilar o codigo em js)
-npm run build
+npm run build,  vai criar a pasta "DIST"
 
 //seed (gerar dados na tabela na inicializacao do sistema)
 npx sequelize seed:generate --name criar-usuarios
