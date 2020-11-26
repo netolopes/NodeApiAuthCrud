@@ -19,6 +19,7 @@ const whiteList = [
   'https://react1.otaviomiranda.com.br',
   'https://react2.otaviomiranda.com.br',
   'http://localhost:3000',
+  // 'https://pt.wikipedia.org',  somente em producao
 ];
 
 const corsOptions = {
